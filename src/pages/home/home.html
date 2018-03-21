@@ -8,7 +8,11 @@
 
 <ion-content padding>
   
-  <button ion-button color="primary" block (click)="signIn()">Sign In</button>
-  <button ion-button color="primary" block (click)="register()">Register</button>
+  <div id="topButtons">
+
+    <button ion-button color="primary" (click)="signIn()" item-left>Sign In</button>
+    <button ion-button color="primary" (click)="register()" item-left>Register</button>
+  </div>
+
 
 </ion-content>
