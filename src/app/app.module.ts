@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { LoggedinPage } from '../pages/loggedin/loggedin';
 
 const firebase = {
   apiKey: "AIzaSyAOXW1Rtbpf727Z6iQScs7pKQhPM9gpi58",
@@ -25,7 +26,8 @@ const firebase = {
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    LoggedinPage
   
   ],
   imports: [
@@ -39,7 +41,8 @@ const firebase = {
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    LoggedinPage
   
   ],
   providers: [
