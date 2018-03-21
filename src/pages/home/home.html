@@ -1,11 +1,18 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Social Network
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-button full color="light" (click)="openFirstPage()"> Click me</button>
+  
+  <div id="topButtons">
+
+    <button ion-button color="primary" (click)="signIn()" item-left>Sign In</button>
+    <button ion-button color="primary" (click)="register()" item-left>Register</button>
+  </div>
+
+
 </ion-content>

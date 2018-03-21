@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { FirstPage } from '../first/first';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, AlertController } from 'ionic-angular';
+
+import { LoginPage } from '../login/login';
+import { RegisterPage } from '../register/register';
 
 @Component({
   selector: 'page-home',
@@ -8,12 +10,39 @@ import { FirstPage } from '../first/first';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  @ViewChild ("username") uname;
+  @ViewChild ("password") password;
+
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
 
   }
 
-  openFirstPage(){
-    this.navCtrl.push(FirstPage);
+  signIn(){
+    //console.log(this.uname.value,this.password.value);
+    /*
+    if (this.uname.value == "admin" && this.password.value == "admin"){
+      //console.log("Sucess logged in");
+      let alert = this.alertCtrl.create({
+        title: 'Login',
+        subTitle: "Sucess logged in",
+        buttons: ['OK']
+      });
+      alert.present();
+    }else{
+      //console.log("Error, the user or password is incorrect.");
+      let alert = this.alertCtrl.create({
+        title: 'Login',
+        subTitle: "Error, the user or password are incorrect.",
+        buttons: ['OK']
+      });
+      alert.present();
+    }
+    */
+    this.navCtrl.push(LoginPage);
   }
 
+  register(){
+    this.navCtrl.push(RegisterPage);
+  }
 }

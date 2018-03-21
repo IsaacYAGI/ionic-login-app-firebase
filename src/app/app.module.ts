@@ -3,26 +3,47 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { FirstPage } from '../pages/first/first';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { LoggedinPage } from '../pages/loggedin/loggedin';
+
+const firebase = {
+  apiKey: "AIzaSyAOXW1Rtbpf727Z6iQScs7pKQhPM9gpi58",
+  authDomain: "test-project-44d78.firebaseapp.com",
+  databaseURL: "https://test-project-44d78.firebaseio.com",
+  projectId: "test-project-44d78",
+  storageBucket: "test-project-44d78.appspot.com",
+  messagingSenderId: "654499899763"
+};
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    FirstPage
+    LoginPage,
+    RegisterPage,
+    LoggedinPage
+  
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebase),
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    FirstPage
+    LoginPage,
+    RegisterPage,
+    LoggedinPage
+  
   ],
   providers: [
     StatusBar,
