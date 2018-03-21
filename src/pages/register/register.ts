@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseAuth } from '@firebase/auth-types';
 
@@ -20,20 +20,30 @@ export class RegisterPage {
   @ViewChild ('username') userName;
   @ViewChild ('password') password;
 
-  constructor(private firebase:AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private firebase:AngularFireAuth, public alertCtrl:AlertController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+  alert(message:string){
+    this.alertCtrl.create({
+      title: 'Info!',
+      subTitle: message,
+      buttons: ['OK']
+    }).present();
+  }
+
   registerUser(){
     this.firebase.auth.createUserWithEmailAndPassword(this.userName.value,this.password.value)
     .then(data =>{
       console.log("got data ", data);
+      this.alert("User registered succesfully");
     })
     .catch(error =>{
       console.log("gotan error ", error);
+      this.alert("Error: "+error.message);
     });
     console.log("New user credentials: ", this.userName.value, " ", this.password.value);
   }
